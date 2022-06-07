@@ -10,6 +10,7 @@ function useGetTeams() {
   const [error, setError] = useState(null);
 
   useEffect(() => {
+    console.log(API_TOKEN);
     setLoading(true);
     axios
       .get(API_URL + `/teams?key=${API_TOKEN}`)
