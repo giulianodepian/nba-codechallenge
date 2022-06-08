@@ -1,3 +1,4 @@
 import HomeScreen from "./HomeScreen"
+import TeamScreen from "./TeamScreen"
 
-export {HomeScreen}
+export {HomeScreen, TeamScreen}

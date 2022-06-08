@@ -1,5 +1,5 @@
 import {TeamProps} from '../types/teamComponent';
-import {View, Text, Image, StyleSheet} from 'react-native';
+import {View, StyleSheet} from 'react-native';
 import { SvgCssUri } from 'react-native-svg';
 import React from 'react';
 import { Dimensions } from 'react-native';
@@ -19,10 +19,10 @@ const Team = (props : TeamProps) => {
     return (
         <View style={styles.logos}>
             <SvgCssUri
-            width='100'
-            height='100'
-            uri={props.team.WikipediaLogoUrl} 
-            fill={color}
+                width='100'
+                height='100'
+                uri={props.team.WikipediaLogoUrl} 
+                fill={color}
             />
         </View>
     )

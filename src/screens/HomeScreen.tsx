@@ -1,22 +1,29 @@
 import {useNavigation} from '@react-navigation/native';
-import React, {useEffect} from 'react';
-import {View, Text, StyleSheet, FlatList} from 'react-native';
+import React from 'react';
+import {View, TouchableOpacity, StyleSheet, FlatList} from 'react-native';
 import useGetTeams from '../hooks/useGetTeams';
-import {HomeScreenProps} from '../types/navigation';
 import Team from '../components/Team';
 
 const HomeScreen = () => {
   const {data, loading, error} = useGetTeams();
   // console.log(data?.map(team => team.WikipediaLogoUrl));
 
-  const navigation = useNavigation<HomeScreenProps>();
+  const navigation = useNavigation();
 
   return (
     <View style={styles.center}>
       <FlatList 
         data={data}
         renderItem={({item}) => (
-          <Team team={item}/>
+          <TouchableOpacity onPress={() => {
+            navigation.navigate(
+              'TeamScreen', {
+                team: item,
+              }
+            )
+          }}>
+            <Team team={item}/>
+          </TouchableOpacity>
         )}
         keyExtractor={item => item.Key}
       />
