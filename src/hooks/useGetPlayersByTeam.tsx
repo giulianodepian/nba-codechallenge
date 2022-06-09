@@ -21,7 +21,7 @@ function useGetPlayersByTeams(teamKey: string) {
       .finally(() => {
         setLoading(false);
       });
-  });
+  }, []);
 
   return {data, loading, error};
 }
