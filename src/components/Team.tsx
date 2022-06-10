@@ -1,5 +1,5 @@
 import {TeamProps} from '../types/teamComponent';
-import {View, StyleSheet} from 'react-native';
+import {View, StyleSheet, ColorValue} from 'react-native';
 import { SvgCssUri } from 'react-native-svg';
 import React from 'react';
 import { Dimensions } from 'react-native';
@@ -16,8 +16,11 @@ const styles = StyleSheet.create({
 
 const Team = (props : TeamProps) => {
     const color = '#' + props.team.PrimaryColor;
+    const backgroundStyle = {
+        backgroundColor: '#' + props.team.SecondaryColor,
+    }
     return (
-        <View style={styles.logos}>
+        <View style={[styles.logos, backgroundStyle]}>
             <SvgCssUri
                 width='100'
                 height='100'
