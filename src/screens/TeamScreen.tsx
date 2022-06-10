@@ -24,12 +24,9 @@ const TeamScreen = ({route}: RootStackScreenProps<'TeamScreen'>) => {
 
     return (
         <View style={styles.center}>
-            <SearchBar
-                onChangeText={handleOnChangeText}
-                onClearPress={handleOnClearText}
-            />
             <FlatList 
                 data={data}
+                ListHeaderComponent={<View style={styles.dummybox}><Text style={styles.dummytext}>-</Text></View>}
                 renderItem={({item}) => (
                     <TouchableOpacity onPress={() => {
                         navigation.navigate(
@@ -45,6 +42,11 @@ const TeamScreen = ({route}: RootStackScreenProps<'TeamScreen'>) => {
                         }
                     </TouchableOpacity>
                 )}
+            />
+            <SearchBar
+                style={styles.search}
+                onChangeText={handleOnChangeText}
+                onClearPress={handleOnClearText}
             />
         </View>
     );
@@ -66,6 +68,22 @@ const styles = StyleSheet.create({
         fontSize: 30,
         color: 'black',
     },
+    dummytext: {
+        fontSize: 30,
+        textAlign: 'center'  
+    },
+    dummybox: {
+        paddingTop: 10,
+        paddingBottom: 10,      
+    },
+    search: {
+        position: 'absolute',
+        top:0,
+        width: '100%',
+        borderBottomLeftRadius: 20,
+        borderBottomRightRadius: 20,
+        height: 55,
+    }
 });
 
 export default TeamScreen;
