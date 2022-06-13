@@ -35,7 +35,7 @@ const TeamScreen = ({route}: RootStackScreenProps<'TeamScreen'>) => {
                             }
                         )
                     }}> 
-                        { (item.FirstName.includes(searchText) || item.LastName.includes(searchText)) &&
+                        { (item.FirstName.toLowerCase().includes(searchText.toLowerCase()) || item.LastName.toLowerCase().includes(searchText.toLowerCase())) &&
                         <View style={styles.playernamebox}>
                             <Text style={styles.playernametext}>{item.FirstName} {item.LastName}</Text>
                         </View>
